@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.quarkus-spending.com</groupId>
   <artifactId>quarkus-spending</artifactId>
@@ -27,7 +29,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-   <dependencies>
+  <dependencies>
     <!-- Quarkus -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -48,14 +50,14 @@
       <artifactId>quarkus-scheduler</artifactId>
     </dependency>
 
-     <!-- Json -->
+    <!-- Json -->
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
       <version>20211205</version>
     </dependency>
 
-      <!-- Model Mapper: http://modelmapper.org/ -->
+    <!-- Model Mapper: http://modelmapper.org/ -->
     <dependency>
       <groupId>org.modelmapper</groupId>
       <artifactId>modelmapper</artifactId>
@@ -71,10 +73,17 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm-panache</artifactId>
     </dependency>
-    <!-- <dependency>
+    <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-mysql</artifactId>
-    </dependency> -->
+      <artifactId>quarkus-jdbc-postgresql</artifactId>
+      <version>2.1.1.Final</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.3.1</version>
+    </dependency>
 
     <!-- Swagger -->
     <dependency>
@@ -100,11 +109,11 @@
     </dependency>
 
     <!-- Http -->
-		<dependency>
-	    <groupId>com.squareup.okhttp3</groupId>
-	    <artifactId>okhttp</artifactId>
-	    <version>3.14.9</version>
-	  </dependency>
+    <dependency>
+      <groupId>com.squareup.okhttp3</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>3.14.9</version>
+    </dependency>
 
     <!-- Test -->
     <dependency>
@@ -122,7 +131,7 @@
       <artifactId>quarkus-jdbc-h2</artifactId>
       <scope>test</scope>
     </dependency>
-     <dependency>
+    <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-testng</artifactId>
       <version>0.4.22</version>
