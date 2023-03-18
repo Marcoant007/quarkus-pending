@@ -15,4 +15,8 @@ public class UsersRepository implements PanacheRepositoryBase<Users, Integer>{
     public Optional<Users> findByEmail(String email){
         return find("email", email).singleResultOptional();
     }
+
+    public Optional<Users> findById(int id){
+        return find("id", id).singleResultOptional();
+    }
 }

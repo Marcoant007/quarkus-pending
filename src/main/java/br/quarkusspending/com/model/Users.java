@@ -13,6 +13,8 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @DynamicUpdate
 @Table(name = "users")
@@ -28,6 +30,7 @@ public class Users {
     @Column(name = "cpf")
     private String cpf;
 
+    @JsonIgnore
     @Column(name = "password")
     private String password;
 

@@ -8,7 +8,6 @@ public class ResponseUserDTO {
     
     private String name;
     private String cpf;
-    private String password;
     private Integer year;
     private String email;
     private Double income;
@@ -31,12 +30,6 @@ public class ResponseUserDTO {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
-    }
     public Integer getYear() {
         return year;
     }
@@ -55,6 +48,4 @@ public class ResponseUserDTO {
     public void setIncome(Double income) {
         this.income = income;
     }
-
-    
 }

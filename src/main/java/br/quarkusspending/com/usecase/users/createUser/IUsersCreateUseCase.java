@@ -1,4 +1,4 @@
-package br.quarkusspending.com.usecase;
+package br.quarkusspending.com.usecase.users.createUser;
 
 import javax.enterprise.context.ApplicationScoped;
 

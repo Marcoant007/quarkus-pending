@@ -64,6 +64,12 @@
       <version>2.3.9</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.mindrot</groupId>
+      <artifactId>jbcrypt</artifactId>
+      <version>0.4</version>
+  </dependency>
+
     <!-- Hibernate -->
     <dependency>
       <groupId>io.quarkus</groupId>
