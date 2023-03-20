@@ -1,29 +1,27 @@
 version: "3.7"
+
 services:
-  # quarkus:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile.dev
-  #     args:
-  #       - ARTIFACT_DIR=/home/usuario/projeto/target
-  #   ports:
-  #     - "8080:8080"
-  #     - "5005:5005"
-  #   environment:
-  #     - QUARKUS_DEBUG=true
-  #     - JAVA_OPTS=-Xmx512m -Xms128m -XX:PermSize=64m -XX:MaxPermSize=128m
-  #   depends_on:
-  #     - spendingdb
   spendingdb:
-    environment: 
+    environment:
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=spendingdb
       - POSTGRES_USER=marco
-    ports: 
+    ports:
       - "5433:5432"
     image: postgres:10-alpine
-    volumes: 
+    volumes:
       - db-data:/var/lib/postgresql/data
 
-volumes: 
+  keycloakservice:
+    image: jboss/keycloak
+    container_name: keycloak
+    environment:
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=admin
+    ports:
+      - "8182:8085"
+    depends_on:
+      - spendingdb
+
+volumes:
   db-data:
