@@ -10,7 +10,7 @@ import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.repository.UsersRepository;
 
 @ApplicationScoped
-public class UsersListUseCase implements IUsersListUseCase {
+public class ListUsersUseCase implements IListUsersUseCase {
 
     @Inject UsersRepository usersRepository;
 

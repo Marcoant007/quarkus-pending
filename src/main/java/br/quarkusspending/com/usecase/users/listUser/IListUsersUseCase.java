@@ -4,6 +4,6 @@ import java.util.List;
 
 import br.quarkusspending.com.model.Users;
 
-public interface IUsersListUseCase {
+public interface IListUsersUseCase {
     public List<Users> list();
 }

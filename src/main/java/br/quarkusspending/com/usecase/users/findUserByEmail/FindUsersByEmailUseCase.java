@@ -1,4 +1,4 @@
-package br.quarkusspending.com.usecase.users.listUserByEmail;
+package br.quarkusspending.com.usecase.users.findUserByEmail;
 
 import java.util.Optional;
 
@@ -11,7 +11,7 @@ import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.repository.UsersRepository;
 
 @ApplicationScoped
-public class UsersListByEmailUseCase implements IUsersListByEmailUseCase {
+public class FindUsersByEmailUseCase implements IFindUsersByEmailUseCase {
 
     @Inject UsersRepository usersRepository;
 

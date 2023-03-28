@@ -10,38 +10,38 @@ import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
+import br.quarkusspending.com.dto.RequestLoginDTO;
 import br.quarkusspending.com.dto.RequestUserDTO;
+import br.quarkusspending.com.dto.ResponseLoginDTO;
 import br.quarkusspending.com.dto.ResponseUserDTO;
 import br.quarkusspending.com.model.Users;
-import br.quarkusspending.com.usecase.users.createUser.UsersCreateUseCase;
-import br.quarkusspending.com.usecase.users.listUser.UsersListUseCase;
-import br.quarkusspending.com.usecase.users.listUserByEmail.UsersListByEmailUseCase;
-import br.quarkusspending.com.usecase.users.updateUser.UsersUpdateUseCase;
+import br.quarkusspending.com.usecase.users.createUser.CreateUsersUseCase;
+import br.quarkusspending.com.usecase.users.findUserByEmail.FindUsersByEmailUseCase;
+import br.quarkusspending.com.usecase.users.listUser.ListUsersUseCase;
+import br.quarkusspending.com.usecase.users.login.LoginUsersUseCase;
+import br.quarkusspending.com.usecase.users.updateUser.UpdateUsersUseCase;
 
 @Tag(name = "Users Controller", description = "Rota responsável pelo controle de usuários")
 @Path("users")
 public class UsersController {
     
-    @Inject UsersCreateUseCase usersCreateUseCase;
-    @Inject UsersListUseCase usersListUseCase;
-    @Inject UsersListByEmailUseCase usersListByEmailUseCase;
-    @Inject UsersUpdateUseCase usersUpdateUseCase;
+    @Inject CreateUsersUseCase usersCreateUseCase;
+    @Inject ListUsersUseCase usersListUseCase;
+    @Inject FindUsersByEmailUseCase usersListByEmailUseCase;
+    @Inject UpdateUsersUseCase usersUpdateUseCase;
+    @Inject LoginUsersUseCase loginUsersUseCase;
 
     @POST
-    @RolesAllowed("admin")
-    @Produces(MediaType.TEXT_PLAIN)
+    @RolesAllowed("Admin")
     public ResponseUserDTO create(RequestUserDTO requestUserDTO){
         return usersCreateUseCase.create(requestUserDTO);
     }
 
     @GET
     @PermitAll
-    @Produces(MediaType.TEXT_PLAIN)
     public List<Users> listAll(){
         return usersListUseCase.list();
     }
@@ -52,8 +52,16 @@ public class UsersController {
         return usersListByEmailUseCase.findByEmail(email);
     }
 
+    @PermitAll
+    @POST
+    @Path("login")
+    public ResponseLoginDTO login(RequestLoginDTO requestLoginDTO){
+        return loginUsersUseCase.login(requestLoginDTO);
+    }
+
     @PUT
     @Path("/{id}")
+    @RolesAllowed("Admin")
     public ResponseUserDTO update(@PathParam("id") int id, RequestUserDTO requestUserDTO){
         return usersUpdateUseCase.update(id, requestUserDTO);
     }

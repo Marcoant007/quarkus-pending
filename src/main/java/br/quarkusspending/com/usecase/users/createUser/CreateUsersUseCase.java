@@ -15,7 +15,7 @@ import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.repository.UsersRepository;
 
 @ApplicationScoped
-public class UsersCreateUseCase implements IUsersCreateUseCase {
+public class CreateUsersUseCase implements ICreateUsersUseCase {
 
     @Inject
     UsersRepository usersRepository;

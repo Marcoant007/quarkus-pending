@@ -6,6 +6,6 @@ import br.quarkusspending.com.dto.RequestUserDTO;
 import br.quarkusspending.com.dto.ResponseUserDTO;
 
 @ApplicationScoped
-public interface IUsersCreateUseCase {
+public interface ICreateUsersUseCase {
    public ResponseUserDTO create(RequestUserDTO users);
 }

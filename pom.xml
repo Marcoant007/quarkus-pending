@@ -75,16 +75,6 @@
       <artifactId>quarkus-security-jpa</artifactId>
     </dependency>
 
-    <!-- Keycloak -->
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-oidc</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-keycloak-authorization</artifactId>
-    </dependency>
-
     <!-- Hibernate -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -121,6 +111,7 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-jwt-build</artifactId>
     </dependency>
+    
 
     <!-- Stripe -->
     <dependency>

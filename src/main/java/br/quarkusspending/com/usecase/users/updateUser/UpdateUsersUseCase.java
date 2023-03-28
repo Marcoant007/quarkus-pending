@@ -13,7 +13,7 @@ import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.repository.UsersRepository;
 
 @ApplicationScoped
-public class UsersUpdateUseCase implements IUsersUpdateUseCase {
+public class UpdateUsersUseCase implements IUpdateUsersUseCase {
 
     @Inject
     UsersRepository usersRepository;
