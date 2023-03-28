@@ -18,6 +18,7 @@ public class LoginUsersUseCase  implements ILoginUsersUseCase {
 
     @Inject JwtGenerateToken jwtGenerateToken;
     @Inject FindUsersByEmailUseCase findUsersByEmailUseCase;
+    private final int EXPIRES_IN = 3600;
 
     @Override
     @Transactional
@@ -29,10 +30,11 @@ public class LoginUsersUseCase  implements ILoginUsersUseCase {
             if(!BCrypt.checkpw(requestLoginDTO.getPassword(), users.getPassword())){
                 throw new MessageExceptions("Email ou senha inválido", 400);
             }
-
-            String token = jwtGenerateToken.generateToken(users.getId());
+           
+            String token = jwtGenerateToken.generateToken(users.getId(), EXPIRES_IN);
             loginDTO.setToken(token);
             loginDTO.setEmail(users.getEmail());
+            loginDTO.setExpiresIn(EXPIRES_IN);
 
             return loginDTO;
         } catch (Exception e) {

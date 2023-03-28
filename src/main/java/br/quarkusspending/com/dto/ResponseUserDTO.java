@@ -11,6 +11,7 @@ public class ResponseUserDTO {
     private Integer year;
     private String email;
     private Double income;
+    private String password;
 
     public static ResponseUserDTO fromModel(Users users){
         ModelMapper modelMapper = new ModelMapper();
@@ -48,4 +49,13 @@ public class ResponseUserDTO {
     public void setIncome(Double income) {
         this.income = income;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
 }

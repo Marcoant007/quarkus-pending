@@ -10,11 +10,11 @@ import io.smallrye.jwt.build.Jwt;
 
 @ApplicationScoped
 public class JwtGenerateToken {
-    public String generateToken(int id) {
+    public String generateToken(int id, int expires) {
         String token = Jwt.issuer("quarkusspending.com.br")
                 .upn(String.valueOf(id))
                 .groups(new HashSet<>(Arrays.asList("User", "Admin")))
-                .expiresIn(Duration.ofDays(3650))
+                .expiresIn(Duration.ofDays(expires))
                 .sign();
 
         return token;
