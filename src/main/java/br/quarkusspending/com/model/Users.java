@@ -4,16 +4,23 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Positive;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import br.quarkusspending.com.enums.ProfileEnum;
+import io.smallrye.common.constraint.NotNull;
 
 @Entity
 @DynamicUpdate
@@ -24,9 +31,11 @@ public class Users {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @NotNull
     @Column(name = "name", columnDefinition = "VARCHAR(50)")
     private String name;
 
+    @NotNull
     @Column(name = "cpf")
     private String cpf;
 
@@ -37,11 +46,18 @@ public class Users {
     @Column(name = "year")
     private Integer year;
 
+    @Email
     @Column(name = "email")
     private String email;
 
+    @Positive
     @Column(name = "income")
     private Double income;
+
+    @NotNull
+    @Column(name = "profile")
+    @Enumerated(EnumType.STRING)
+    private ProfileEnum profile;
 
     @CreationTimestamp
     @Column(name = "created_at", columnDefinition = "TIMESTAMP")
@@ -123,6 +139,11 @@ public class Users {
         this.updatedAt = updatedAt;
     }
 
-    
+    public ProfileEnum getProfile() {
+        return profile;
+    }
 
+    public void setProfile(ProfileEnum profile) {
+        this.profile = profile;
+    }
 }

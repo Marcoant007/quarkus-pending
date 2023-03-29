@@ -2,6 +2,7 @@ package br.quarkusspending.com.dto;
 
 import org.modelmapper.ModelMapper;
 
+import br.quarkusspending.com.enums.ProfileEnum;
 import br.quarkusspending.com.model.Users;
 
 public class ResponseUserDTO {
@@ -12,6 +13,7 @@ public class ResponseUserDTO {
     private String email;
     private Double income;
     private String password;
+    private ProfileEnum profile;
 
     public static ResponseUserDTO fromModel(Users users){
         ModelMapper modelMapper = new ModelMapper();
@@ -58,4 +60,10 @@ public class ResponseUserDTO {
         this.password = password;
     }
     
+    public ProfileEnum getProfile() {
+        return profile;
+    }
+    public void setProfile(ProfileEnum profileEnum) {
+        this.profile = profileEnum;
+    }
 }

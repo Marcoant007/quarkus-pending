@@ -31,10 +31,11 @@ public class LoginUsersUseCase  implements ILoginUsersUseCase {
                 throw new MessageExceptions("Email ou senha inválido", 400);
             }
            
-            String token = jwtGenerateToken.generateToken(users.getId(), EXPIRES_IN);
+            String token = jwtGenerateToken.generateToken(users, EXPIRES_IN);
             loginDTO.setToken(token);
             loginDTO.setEmail(users.getEmail());
             loginDTO.setExpiresIn(EXPIRES_IN);
+            loginDTO.setProfile(users.getProfile());
 
             return loginDTO;
         } catch (Exception e) {

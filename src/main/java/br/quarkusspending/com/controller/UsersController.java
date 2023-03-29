@@ -1,6 +1,5 @@
 package br.quarkusspending.com.controller;
 
-import java.time.Instant;
 import java.util.List;
 
 import javax.annotation.security.PermitAll;
@@ -15,7 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.SecurityContext;
 
-import org.eclipse.microprofile.jwt.JsonWebToken;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
 import br.quarkusspending.com.dto.RequestUserDTO;
@@ -36,9 +34,9 @@ public class UsersController {
     @Inject UpdateUsersUseCase usersUpdateUseCase;
 
     @POST
-    @RolesAllowed("Admin")
+    @RolesAllowed("ADMIN")
     public ResponseUserDTO create(@Context SecurityContext securityContext, RequestUserDTO requestUserDTO){
-        if (!securityContext.isUserInRole("Admin")) {
+        if (!securityContext.isUserInRole("ADMIN")) {
             throw new NotAuthorizedException("Usuário não autorizado");
         }
         return usersCreateUseCase.create(requestUserDTO);
@@ -58,7 +56,7 @@ public class UsersController {
 
     @PUT
     @Path("/{id}")
-    @RolesAllowed("Admin")
+    @RolesAllowed("ADMIN")
     public ResponseUserDTO update(@PathParam("id") int id, RequestUserDTO requestUserDTO){
         return usersUpdateUseCase.update(id, requestUserDTO);
     }

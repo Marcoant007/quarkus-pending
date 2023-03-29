@@ -36,6 +36,7 @@ public class CreateUsersUseCase implements ICreateUsersUseCase {
             users.setName(requestUserDTO.getName());
             users.setPassword(BCrypt.hashpw(password, BCrypt.gensalt()));
             users.setYear(requestUserDTO.getYear());
+            users.setProfile(requestUserDTO.getProfile());
 
             usersRepository.persist(users);
             return ResponseUserDTO.fromModel(users);

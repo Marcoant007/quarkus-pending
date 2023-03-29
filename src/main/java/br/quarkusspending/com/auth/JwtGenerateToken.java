@@ -6,14 +6,15 @@ import java.util.HashSet;
 
 import javax.enterprise.context.ApplicationScoped;
 
+import br.quarkusspending.com.model.Users;
 import io.smallrye.jwt.build.Jwt;
 
 @ApplicationScoped
 public class JwtGenerateToken {
-    public String generateToken(int id, int expires) {
+    public String generateToken(Users users, int expires) {
         String token = Jwt.issuer("quarkusspending.com.br")
-                .upn(String.valueOf(id))
-                .groups(new HashSet<>(Arrays.asList("User", "Admin")))
+                .upn(String.valueOf(users.getId()))
+                .groups(new HashSet<>(Arrays.asList(users.getProfile().toString())))
                 .expiresIn(Duration.ofDays(expires))
                 .sign();
 

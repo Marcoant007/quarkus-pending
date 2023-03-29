@@ -1,12 +1,33 @@
 package br.quarkusspending.com.dto;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Positive;
+
+import br.quarkusspending.com.enums.ProfileEnum;
+
 public class RequestUserDTO {
+    
+    @NotEmpty
     private String name;
+    
+    @NotEmpty
     private String cpf;
+    
+    @NotEmpty
     private String password;
+    
+    @NotEmpty
     private Integer year;
+    
+    @Email
     private String email;
+    
+    @Positive
     private Double income;
+    
+    @NotEmpty
+    private ProfileEnum profile;
 
     public String getName() {
         return name;
@@ -44,6 +65,11 @@ public class RequestUserDTO {
     public void setIncome(Double income) {
         this.income = income;
     }
+    public ProfileEnum getProfile() {
+        return profile;
+    }
+    public void setProfile(ProfileEnum profileEnum) {
+        this.profile = profileEnum;
+    }
 
-    
 }
