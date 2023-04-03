@@ -13,16 +13,18 @@ import br.quarkusspending.com.dto.ResponseUserDTO;
 import br.quarkusspending.com.exceptions.MessageExceptions;
 import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.repository.UsersRepository;
+import br.quarkusspending.com.utils.ValidatorUtil;
 
 @ApplicationScoped
 public class CreateUsersUseCase implements ICreateUsersUseCase {
 
-    @Inject
-    UsersRepository usersRepository;
+    @Inject UsersRepository usersRepository;
+    @Inject ValidatorUtil validatorUtil;
 
     @Override
     @Transactional
     public ResponseUserDTO create(RequestUserDTO requestUserDTO) {
+        validatorUtil.validate(requestUserDTO);
         try {
             Optional<Users> usersOp = usersRepository.findByEmail(requestUserDTO.getEmail());
             if (usersOp.isPresent()) {

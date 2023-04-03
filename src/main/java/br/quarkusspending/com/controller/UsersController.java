@@ -43,7 +43,7 @@ public class UsersController {
     }
 
     @GET
-    @PermitAll
+    @RolesAllowed("manager")
     public List<Users> listAll(){
         return usersListUseCase.list();
     }

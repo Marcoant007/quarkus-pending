@@ -111,20 +111,18 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-jwt-build</artifactId>
     </dependency>
-    
-
-    <!-- Stripe -->
-    <dependency>
-      <groupId>com.stripe</groupId>
-      <artifactId>stripe-java</artifactId>
-      <version>22.10.0</version>
-    </dependency>
 
     <!-- Http -->
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
       <version>3.14.9</version>
+    </dependency>
+
+    <!-- Keycloak -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-oidc</artifactId>
     </dependency>
 
     <!-- Test -->
