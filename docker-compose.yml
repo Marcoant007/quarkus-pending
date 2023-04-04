@@ -11,5 +11,16 @@ services:
     image: postgres:10-alpine
     volumes:
       - db-data:/var/lib/postgresql/data
+
+  # keycloak:
+  #   image: quay.io/keycloak/keycloak:17.0.0
+  #   container_name: keycloak
+  #   environment:
+  #     - KEYCLOAK_ADMIN=admin
+  #     - KEYCLOAK_ADMIN_PASSWORD=admin
+  #   ports:
+  #     - "8180:8080"
+  #   command: "start-dev"
+    
 volumes:
   db-data:
