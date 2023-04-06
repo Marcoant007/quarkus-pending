@@ -1,33 +1,25 @@
-package br.quarkusspending.com.dto;
+package br.quarkusspending.com.dto.user;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Positive;
+import org.modelmapper.ModelMapper;
 
 import br.quarkusspending.com.enums.ProfileEnum;
+import br.quarkusspending.com.model.Users;
 
-public class RequestUserDTO {
+public class ResponseUserDTO {
     
-    @NotEmpty
     private String name;
-    
-    @NotEmpty
     private String cpf;
-    
-    @NotEmpty
-    private String password;
-    
-    @NotEmpty
     private Integer year;
-    
-    @Email
     private String email;
-    
-    @Positive
     private Double income;
-    
-    @NotEmpty
+    private String password;
     private ProfileEnum profile;
+
+    public static ResponseUserDTO fromModel(Users users){
+        ModelMapper modelMapper = new ModelMapper();
+        ResponseUserDTO responseUserDTO = modelMapper.map(users, ResponseUserDTO.class);
+        return responseUserDTO;
+    }
 
     public String getName() {
         return name;
@@ -40,12 +32,6 @@ public class RequestUserDTO {
     }
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-    public String getPassword() {
-        return password;
-    }
-    public void setPassword(String password) {
-        this.password = password;
     }
     public Integer getYear() {
         return year;
@@ -65,11 +51,19 @@ public class RequestUserDTO {
     public void setIncome(Double income) {
         this.income = income;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
     public ProfileEnum getProfile() {
         return profile;
     }
     public void setProfile(ProfileEnum profileEnum) {
         this.profile = profileEnum;
     }
-
 }

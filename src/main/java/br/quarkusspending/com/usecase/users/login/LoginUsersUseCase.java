@@ -7,8 +7,8 @@ import javax.transaction.Transactional;
 import org.mindrot.jbcrypt.BCrypt;
 
 import br.quarkusspending.com.auth.JwtGenerateToken;
-import br.quarkusspending.com.dto.RequestLoginDTO;
-import br.quarkusspending.com.dto.ResponseLoginDTO;
+import br.quarkusspending.com.dto.login.RequestLoginDTO;
+import br.quarkusspending.com.dto.login.ResponseLoginDTO;
 import br.quarkusspending.com.exceptions.MessageExceptions;
 import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.usecase.users.findUserByEmail.FindUsersByEmailUseCase;

@@ -8,8 +8,8 @@ import javax.transaction.Transactional;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import br.quarkusspending.com.dto.RequestUserDTO;
-import br.quarkusspending.com.dto.ResponseUserDTO;
+import br.quarkusspending.com.dto.user.RequestUserDTO;
+import br.quarkusspending.com.dto.user.ResponseUserDTO;
 import br.quarkusspending.com.exceptions.MessageExceptions;
 import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.repository.UsersRepository;

@@ -5,8 +5,8 @@ import javax.inject.Inject;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 
-import br.quarkusspending.com.dto.RequestLoginDTO;
-import br.quarkusspending.com.dto.ResponseLoginDTO;
+import br.quarkusspending.com.dto.login.RequestLoginDTO;
+import br.quarkusspending.com.dto.login.ResponseLoginDTO;
 import br.quarkusspending.com.usecase.users.login.LoginUsersUseCase;
 
 @Path("secured")

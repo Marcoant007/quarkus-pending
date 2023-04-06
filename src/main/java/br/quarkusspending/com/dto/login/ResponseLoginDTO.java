@@ -1,4 +1,4 @@
-package br.quarkusspending.com.dto;
+package br.quarkusspending.com.dto.login;
 
 import br.quarkusspending.com.enums.ProfileEnum;
 

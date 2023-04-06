@@ -2,7 +2,6 @@ package br.quarkusspending.com.controller;
 
 import java.util.List;
 
-import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.GET;
@@ -16,8 +15,8 @@ import javax.ws.rs.core.SecurityContext;
 
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import br.quarkusspending.com.dto.RequestUserDTO;
-import br.quarkusspending.com.dto.ResponseUserDTO;
+import br.quarkusspending.com.dto.user.RequestUserDTO;
+import br.quarkusspending.com.dto.user.ResponseUserDTO;
 import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.usecase.users.createUser.CreateUsersUseCase;
 import br.quarkusspending.com.usecase.users.findUserByEmail.FindUsersByEmailUseCase;
@@ -43,13 +42,14 @@ public class UsersController {
     }
 
     @GET
-    @RolesAllowed("manager")
+    @RolesAllowed("ADMIN")
     public List<Users> listAll(){
         return usersListUseCase.list();
     }
 
     @GET
     @Path("/{email}")
+    @RolesAllowed("ADMIN")
     public Users findByEmail(@PathParam("email") String email){
         return usersListByEmailUseCase.findByEmail(email);
     }

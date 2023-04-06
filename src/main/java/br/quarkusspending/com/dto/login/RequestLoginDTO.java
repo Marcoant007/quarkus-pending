@@ -1,4 +1,4 @@
-package br.quarkusspending.com.dto;
+package br.quarkusspending.com.dto.login;
 
 public class RequestLoginDTO {
     public String email;

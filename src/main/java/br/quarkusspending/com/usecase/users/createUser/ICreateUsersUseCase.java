@@ -2,8 +2,8 @@ package br.quarkusspending.com.usecase.users.createUser;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import br.quarkusspending.com.dto.RequestUserDTO;
-import br.quarkusspending.com.dto.ResponseUserDTO;
+import br.quarkusspending.com.dto.user.RequestUserDTO;
+import br.quarkusspending.com.dto.user.ResponseUserDTO;
 
 @ApplicationScoped
 public interface ICreateUsersUseCase {
