@@ -1,4 +1,4 @@
-package br.quarkusspending.com.usecase.users.login;
+package br.quarkusspending.com.usecase.login;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -14,7 +14,7 @@ import br.quarkusspending.com.model.Users;
 import br.quarkusspending.com.usecase.users.findUserByEmail.FindUsersByEmailUseCase;
 
 @ApplicationScoped
-public class LoginUsersUseCase  implements ILoginUsersUseCase {
+public class LoginUseCase  implements ILoginUseCase {
 
     @Inject JwtGenerateToken jwtGenerateToken;
     @Inject FindUsersByEmailUseCase findUsersByEmailUseCase;

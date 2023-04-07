@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import br.quarkusspending.com.dto.creditcard.RequestCreditCardDTO;
 import br.quarkusspending.com.dto.creditcard.ResponseCreditCardDTO;
+import br.quarkusspending.com.enums.CreditCardStatusEnum;
 import br.quarkusspending.com.exceptions.MessageExceptions;
 import br.quarkusspending.com.model.CreditCard;
 import br.quarkusspending.com.model.Users;
@@ -35,6 +36,7 @@ public class CreateCreditCardUseCase implements ICreateCreditCardUseCase {
             creditCard.setCvv(requestCreditCardDTO.getCvv());
             creditCard.setLimit(requestCreditCardDTO.getLimit());
             creditCard.setValidity(requestCreditCardDTO.getValidity());
+            creditCard.setStatus(CreditCardStatusEnum.ACTIVE);
             creditCard.setUsers(user);
             creditCardRepository.persist(creditCard);
             return ResponseCreditCardDTO.fromModel(creditCard);

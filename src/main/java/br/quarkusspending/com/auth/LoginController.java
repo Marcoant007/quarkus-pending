@@ -7,12 +7,12 @@ import javax.ws.rs.Path;
 
 import br.quarkusspending.com.dto.login.RequestLoginDTO;
 import br.quarkusspending.com.dto.login.ResponseLoginDTO;
-import br.quarkusspending.com.usecase.users.login.LoginUsersUseCase;
+import br.quarkusspending.com.usecase.login.LoginUseCase;
 
 @Path("secured")
 public class LoginController {
    
-    @Inject LoginUsersUseCase loginUsersUseCase;
+    @Inject LoginUseCase loginUsersUseCase;
 
     @PermitAll
     @POST

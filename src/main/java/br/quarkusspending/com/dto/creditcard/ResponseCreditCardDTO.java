@@ -4,8 +4,8 @@ import java.time.LocalDate;
 
 import org.modelmapper.ModelMapper;
 
+import br.quarkusspending.com.enums.CreditCardStatusEnum;
 import br.quarkusspending.com.model.CreditCard;
-import br.quarkusspending.com.model.Users;
 
 public class ResponseCreditCardDTO {
     private String nameCard;
@@ -16,7 +16,7 @@ public class ResponseCreditCardDTO {
     private String cardNumber;
     private Integer cvv;
     private Double limit;
-    private Users users;
+    private CreditCardStatusEnum status;
 
     public static ResponseCreditCardDTO fromModel(CreditCard card){
         ModelMapper modelMapper = new ModelMapper();
@@ -88,12 +88,11 @@ public class ResponseCreditCardDTO {
         this.limit = limit;
     }
 
-    public Users getUsers() {
-        return users;
+    public CreditCardStatusEnum getStatus() {
+        return status;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setStatus(CreditCardStatusEnum status) {
+        this.status = status;
     }
-    
 }

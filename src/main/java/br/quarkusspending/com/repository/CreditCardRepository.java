@@ -1,6 +1,7 @@
 package br.quarkusspending.com.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.enterprise.context.ApplicationScoped;
 
@@ -11,6 +12,10 @@ import io.quarkus.hibernate.orm.panache.PanacheRepositoryBase;
 public class CreditCardRepository implements PanacheRepositoryBase<CreditCard, Integer> {
     
     public List<CreditCard> findCreditCardByUser(int user_id){
-        return find("user_id", user_id).list();
+        return find("user_id=?1 AND status='ACTIVE'", user_id).list();
+    }
+
+    public Optional<CreditCard> findCreditCardByUserAndCardId(int userId, int cardId){
+        return find("user_id=?1 AND id=?2 AND status='ACTIVE'", userId, cardId).singleResultOptional();
     }
 }
