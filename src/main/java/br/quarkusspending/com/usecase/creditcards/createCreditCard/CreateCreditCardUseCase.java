@@ -1,5 +1,7 @@
 package br.quarkusspending.com.usecase.creditcards.createCreditCard;
 
+import java.util.Optional;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -27,6 +29,10 @@ public class CreateCreditCardUseCase implements ICreateCreditCardUseCase {
         validatorUtil.validate(requestCreditCardDTO);
         try {
             Users user = findUsersByIdUseCase.findById(userId);
+            Optional<CreditCard> creditCardOp = creditCardRepository.findCreditCardByUserAndCardNumber(userId, requestCreditCardDTO.getCardNumber());
+            if(creditCardOp.isPresent()){
+                throw new MessageExceptions("Este cartão ja existe!", 401);
+            }
             CreditCard creditCard = new CreditCard();
             creditCard.setName(requestCreditCardDTO.getName());
             creditCard.setNameCard(requestCreditCardDTO.getNameCard());
@@ -44,5 +50,4 @@ public class CreateCreditCardUseCase implements ICreateCreditCardUseCase {
             throw new MessageExceptions(e, 500);
         }
     }
-    
 }

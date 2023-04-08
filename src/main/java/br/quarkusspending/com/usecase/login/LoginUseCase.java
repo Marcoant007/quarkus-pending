@@ -42,7 +42,4 @@ public class LoginUseCase  implements ILoginUseCase {
             throw new MessageExceptions("Usuário não encontrado!", 400);
         }
     }
-
-   
-    
 }

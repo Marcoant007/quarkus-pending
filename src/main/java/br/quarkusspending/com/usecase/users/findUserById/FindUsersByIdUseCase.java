@@ -24,5 +24,4 @@ public class FindUsersByIdUseCase implements IFindUsersByIdUseCase {
         }
         throw new MessageExceptions("Usuário não encontrado!", 400);
     }
-    
 }

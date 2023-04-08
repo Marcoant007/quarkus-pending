@@ -19,5 +19,4 @@ public class ListUsersUseCase implements IListUsersUseCase {
     public List<Users> list() {
         return usersRepository.findAll().list();
     }
-    
 }

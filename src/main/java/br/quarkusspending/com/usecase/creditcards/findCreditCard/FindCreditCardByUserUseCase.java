@@ -17,5 +17,4 @@ public class FindCreditCardByUserUseCase implements IFindCreditCardByUserUseCase
     public List<CreditCard> findCreditCardByUser(int userId) {
         return creditCardRepository.findCreditCardByUser(userId);
     }
-    
 }

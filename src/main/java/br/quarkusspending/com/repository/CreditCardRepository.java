@@ -15,6 +15,10 @@ public class CreditCardRepository implements PanacheRepositoryBase<CreditCard, I
         return find("user_id=?1 AND status='ACTIVE'", user_id).list();
     }
 
+    public Optional<CreditCard> findCreditCardByUserAndCardNumber(int userId, String cardNumber){
+        return find("user_id=?1 AND card_number=?2 AND status='ACTIVE'", userId, cardNumber).singleResultOptional();
+    }
+
     public Optional<CreditCard> findCreditCardByUserAndCardId(int userId, int cardId){
         return find("user_id=?1 AND id=?2 AND status='ACTIVE'", userId, cardId).singleResultOptional();
     }
